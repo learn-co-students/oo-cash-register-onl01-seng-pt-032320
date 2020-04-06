@@ -1,8 +1,9 @@
 require 'pry'
 
 class CashRegister
-attr_accessor :total, :discount :price
 
+
+attr_accessor :total, :discount
 def initialize(discount = 0)
 @total = 0
 @discount = discount
@@ -46,11 +47,9 @@ def items
 end
 
 def void_last_transaction
-binding.pry
-to_be_void = @last_trans.pop.to_a
 
-@total -= to_be_void[1] * to_be_void[2]
-  
+to_be_void = @last_trans.pop
+ @total -=  to_be_void[:price] * to_be_void[:quantity]
 end
 
 

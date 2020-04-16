@@ -14,7 +14,12 @@ attr_accessor :total, :discount
     else
       value = price
     end
-    
     @total += value
   end
+  
+  def apply_discount
+    
+  end
+  
+  
 end

@@ -38,7 +38,6 @@ attr_accessor :total, :discount, :items, :last_item
   
   def void_last_transaction
     @total = @total - @last_item
-    @items.pop
   end
   
 end

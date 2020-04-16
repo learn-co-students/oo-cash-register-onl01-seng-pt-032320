@@ -18,7 +18,13 @@ attr_accessor :total, :discount
   end
   
   def apply_discount
-    
+    if @discount != nil
+    discount = @discount*10
+    @total = @total - discount
+    "After the discount, the total comes to $#{total}."
+  else
+    "There is no discount to apply."
+  end
   end
   
   

@@ -1,4 +1,3 @@
-require 'pry'
 class CashRegister
   
   attr_accessor :total, :items, :last_item_price, :number_of_items, :quantity, :discount
@@ -7,8 +6,7 @@ class CashRegister
     @total = total
     @items = []
     @discount = discount
-  end 
-  
+    
   def total 
     @total
   end 
@@ -30,7 +28,7 @@ class CashRegister
       @total = @total * 0.80
       @total = @total.to_i
       puts "After the discount, the total comes to $#{@total}."
-    else 
+    elsif @discount == nil 
       puts "There is no discount to apply."
     end 
   end 
@@ -50,5 +48,7 @@ class CashRegister
       return @total
     end 
   end 
+  end 
+  
   
 end 

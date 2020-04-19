@@ -10,10 +10,15 @@ class CashRegister
     @items = []
   end
 
-  def add_item(item, price, quantity = 1)
+#  def total
+    #@items.each{ |name, price, quantity| self.total += price * quantity}
+    #@total
+  #end
+  
+  def add_item(name, price, quantity = 1) #each ITEM = [name,price,quantity]
+    item = [name, price, quantity]
     self.total += price * quantity
-    (@items << item) * quantity
-    binding.pry
+    @items << item
   end
     
     def apply_discount
@@ -26,4 +31,8 @@ class CashRegister
       end
     end
     
+    def items
+     binding.pry
+     @items.collect{ |item| (item[0].split * item[2])}.flatten
+    end
 end

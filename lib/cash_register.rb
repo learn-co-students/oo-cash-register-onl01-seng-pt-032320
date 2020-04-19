@@ -2,8 +2,8 @@ require 'pry'
 
 class CashRegister
   
-  attr_accessor :discount, :total, :items
-  
+  attr_accessor :discount, :total, :items, :last_transaction
+    
   def initialize(discount = 0)
     @total = 0
     @discount = discount
@@ -11,8 +11,11 @@ class CashRegister
   end
 
   def add_item(name, price, quantity = 1) #each ITEM = [name,price,quantity]
+    #binding.pry
     item = [name, price, quantity]
     self.total += price * quantity
+    self.last_transaction = price * quantity
+    
     @items << item
   end
     
@@ -30,14 +33,8 @@ class CashRegister
    @items.collect{ |item| (item[0].split * item[2])}.flatten
   end
   
-  def total
-  #binding.pry
-  @items.collect{ |name, price, quantity| @total += price * quantity}
-  @total
-  end
-    
   def void_last_transaction
-    #binding.pry
-    @items.pop
+    @total -= @last_transaction
+    #@items.pop
   end
 end

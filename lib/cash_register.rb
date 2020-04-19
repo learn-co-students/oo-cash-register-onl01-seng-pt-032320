@@ -2,9 +2,8 @@ require 'pry'
 
 class CashRegister
   
-  attr_writer :total
+  #attr_writer :total
   attr_reader :discount
-  
   
   def initializate(*discount)
     @total = 0
@@ -19,6 +18,4 @@ class CashRegister
     self.total += price * quantity
   end
     
-  
-  
 end

@@ -21,13 +21,14 @@ class CashRegister
     d = @discount.to_f
     t = @total.to_f
     @total = t - (t * (d / 100))
-    # binding.pry
+
 
     "After the discount, the total comes to $#{@total.to_i}."
   end
   end
 
   def items
-    
+    @total
+        binding.pry
   end
 end
